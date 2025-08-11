@@ -31,7 +31,8 @@ class Coding_Controller extends Common_Controller {
    *   "description": "Discover NanoMVC, a lightweight and modernized fork of TinyMVC designed for simplicity, speed, and full control. Perfect for small to medium projects, it offers MVC structure, plugin support, and modern PHP 8+ features without unnecessary complexity.",
    *   "created": "2025-08-09 00:30",
    *   "is_project": true,
-   *   "img": "/imgs/coding/nanomvcfrm.webp"
+   *   "img": "/imgs/coding/nanomvcfrm.webp",
+   *   "img_height": "62"
    * }
    */
   public function nanomvcfrm(): void {

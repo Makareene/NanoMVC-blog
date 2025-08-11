@@ -7,7 +7,8 @@
                 <li>
                     <h3><a href="<?=$dh::esc_html($art['_link'])?>"><?=$dh::esc_html($art['name'])?></a></h3>
                     <?php if(isset($art['img'])):?>
-                      <img src="<?=$dh::esc_html($art['img'])?>" alt="<?=$dh::esc_html($art['name'])?>">
+                      <img src="<?=$dh::esc_html($art['img'])?>" alt="<?=$dh::esc_html($art['name'])?>"
+                        <?=(isset($art['img_height']) ? 'class="h-' . $art['img_height'] . '" height="' . $art['img_height'] . '"' : '')?>>
                     <?php endif?>
                     <p><?=$dh::esc_html($art['description'])?></p>
                 </li>

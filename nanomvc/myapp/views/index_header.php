@@ -16,18 +16,31 @@
 
       <?php endif?>
       <?php endforeach?>
+      <?php if($has_img_height):?>
+      @media (max-width: 500px) {
+      <?php foreach($articles as $art):?>
+        <?php if(isset($art['img_height'])):?>
+        .h-<?=$art['img_height']?> {
+          <?php // 75 is a default width, 50 is a default width after "@media (max-width: 500px)"?>
+          height: calc(<?=$art['img_height']?>px * (50 * 100 / 75) / 100);
+        }
+
+        <?php endif?>
+      <?php endforeach?>
+      }
+      <?php endif?>
     </style>
     <?php endif?>
   </head>
   <body>
     <header class="<?=(!isset($categories) || !is_array($categories) || !sizeof($categories) ? 'no-nav' : '')?>">
-      <h1>
+      <div>
       <?php if(isset($_SERVER['PATH_INFO'])):?>
         <a href="/"><img src="/logo.webp" alt="Nipaa" width="275" height="90"></a>'s&nbsp;Blog
       <?php else:?>
         <img src="/logo.webp" alt="Nipaa" width="275" height="90">'s&nbsp;Blog
       <?php endif?>
-      </h1>
+      </div>
     </header>
 
     <?php if(isset($categories) && is_array($categories) && sizeof($categories)):?>

@@ -1,5 +1,5 @@
       <section class="section">
-        <h2>📘 Welcome to my blog</h2>
+        <h1>📘 Welcome to my blog</h1>
         <p>
         Hi! My name's Nipaa. This is a personal blog where I post everything I do or think.
         At the moment, it's mostly about coding.

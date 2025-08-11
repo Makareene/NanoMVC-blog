@@ -1,5 +1,5 @@
       <section class="section">
-        <h2>🧪 Welcome to the Coding Playground</h2>
+        <h1>🧪 Welcome to the Coding Playground</h1>
         <p>
         This is my personal Coding Playground — a space where I share code experiments, examples, tools, and cheat sheets. Here you’ll find helpful references like Git commands, HTML/CSS tips, and more. The chapter covers a variety of programming languages and topics, not limited to PHP alone. Sometimes I develop custom helpers for frameworks or explore new ideas in coding. Whether it’s a simple trick or a useful snippet, this is where I document it all — aiming to keep things practical and clear for anyone interested.
         </p>
