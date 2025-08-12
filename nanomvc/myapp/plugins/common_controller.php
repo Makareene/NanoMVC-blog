@@ -66,12 +66,6 @@ class Common_Controller extends NanoMVC_Controller {
       $this->limit = 8;
     }
 
-    $has_img_height = (bool) array_filter($this->articles, function($subarray) {
-      return is_array($subarray) && array_key_exists('img_height', $subarray);
-    });
-
-    $this->ar_header['has_img_height'] = $has_img_height;
-
     $this->max_page = $this->menu->pagination($this->articles, $this->limit);
 
     if ($this->action === 'index') {
@@ -87,6 +81,12 @@ class Common_Controller extends NanoMVC_Controller {
 
       $this->page_start = max(1, $this->current_page - $this->page_window);
       $this->page_end = min($this->max_page, $this->current_page + $this->page_window);
+
+      $has_img_height = (bool) array_filter($this->articles, function($subarray) {
+        return is_array($subarray) && array_key_exists('img_height', $subarray);
+      });
+
+      $this->ar_header['has_img_height'] = $has_img_height;
 
       $this->view->assign(['articles' => $this->articles,
                            'max_page' => $this->max_page,

@@ -45,6 +45,26 @@ class Coding_Controller extends Common_Controller {
     $this->view->display('index_footer');
   }
 
+  /**
+   * @blog {
+   *   "name": "Git Cheat Sheets",
+   *   "description": "A concise guide to key Git commands with explanations and usage examples. Learn how to initialize repos, stage changes, manage branches, sync with remotes, and configure diff tools. Perfect for developers of all levels.",
+   *   "created": "2025-08-12 11:30",
+   *   "is_project": false,
+   *   "img": "/imgs/coding/git.webp",
+   *   "img_height": "70"
+   * }
+   */
+  public function git(): void {
+    $this->_get_preparticle('Git Cheat Sheets — Essential Commands & Examples for Everyday Use');
+
+    // $this->dh::debug($this->ar_header, 'Categories');
+
+    $this->view->display('index_header', $this->ar_header);
+    $this->view->display('git_view');
+    $this->view->display('index_footer');
+  }
+
 }
 
 ?>

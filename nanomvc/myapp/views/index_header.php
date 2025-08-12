@@ -16,7 +16,7 @@
 
       <?php endif?>
       <?php endforeach?>
-      <?php if($has_img_height):?>
+      <?php if(isset($has_img_height) && $has_img_height):?>
       @media (max-width: 500px) {
       <?php foreach($articles as $art):?>
         <?php if(isset($art['img_height'])):?>
