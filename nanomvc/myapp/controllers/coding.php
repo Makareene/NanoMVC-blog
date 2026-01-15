@@ -65,6 +65,26 @@ class Coding_Controller extends Common_Controller {
     $this->view->display('index_footer');
   }
 
+  /**
+   * @blog {
+   *   "name": "Unified Telegram Authorization (Widget & Mini App)",
+   *   "description": "A unified PHP authorization flow for Telegram Login Widget and Telegram Mini Apps. Secure signature validation, minimal dependencies, and a single backend logic for both WebApp and Widget authentication.",
+   *   "created": "2026-01-15 23:00",
+   *   "is_project": true,
+   *   "img": "/imgs/coding/tgwebauth.webp",
+   *   "img_height": "78"
+   * }
+   */
+  public function tgwebauth(): void {
+    $this->_get_preparticle('Unified Telegram Authorization for Login Widget and Mini Apps (PHP)');
+
+    // $this->dh::debug($this->ar_header, 'Categories');
+
+    $this->view->display('index_header', $this->ar_header);
+    $this->view->display('tgwebauth_view');
+    $this->view->display('index_footer');
+  }
+
 }
 
 ?>
