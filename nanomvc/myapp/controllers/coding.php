@@ -85,6 +85,26 @@ class Coding_Controller extends Common_Controller {
     $this->view->display('index_footer');
   }
 
+  /**
+   * @blog {
+   *   "name": "Graphics Optimization for Web Games",
+   *   "description": "An in-depth practical guide to graphics optimization for web games and applications. Learn how to choose the right image formats, understand the difference between vector and raster graphics, reduce CPU, GPU, memory, and server load, minimize HTTP requests, optimize rendering performance, and build scalable frontend architecture for modern web projects.",
+   *   "created": "2026-05-28 21:15",
+   *   "is_project": false,
+   *   "img": "/imgs/coding/webgraphics.webp",
+   *   "img_height": "89"
+   * }
+   */
+  public function webgraphics(): void {
+    $this->_get_preparticle('How to Properly Prepare Graphics for Web Games and Applications');
+
+    // $this->dh::debug($this->ar_header, 'Categories');
+
+    $this->view->display('index_header', $this->ar_header);
+    $this->view->display('webgraphics_view');
+    $this->view->display('index_footer');
+  }
+
 }
 
 ?>
