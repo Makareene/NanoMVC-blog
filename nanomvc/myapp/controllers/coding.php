@@ -1,4 +1,4 @@
-<?php // -> as categorie: { "name": "Coding", "created": "2025-08-08 12:00", "symbol": "⚙️" } ?>
+<?php // -> as category: { "name": "Coding", "created": "2025-08-08 12:00", "symbol": "⚙️" } ?>
 <?php
 
 /**
@@ -15,14 +15,14 @@ class Coding_Controller extends Common_Controller {
 
   public function index(): void {
     parent::index();
-    $this->ar_header['title'] = $this->dh::esc_html('Coding Playground');
-    $this->ar_header['description'] = $this->dh::esc_html('Personal coding playground of Nipaa — a collection of code experiments, tools, and useful cheat sheets across PHP, JavaScript, SQL, and more.');
+    $this->ar_header['title'] = $this->dh->esc_html('Coding Playground');
+    $this->ar_header['description'] = $this->dh->esc_html('Personal coding playground of Nipaa — a collection of code experiments, tools, and useful cheat sheets across PHP, JavaScript, SQL, and more.');
 
-    // $this->dh::debug($this->articles, 'Articles');
+    // $this->dh->debug($this->articles, 'Articles');
 
-    $this->view->display('index_header', $this->ar_header);
-    $this->view->display('coding_view', ['articles' => $this->articles]);
-    $this->view->display('index_footer');
+    $this->view->display('header', $this->ar_header);
+    $this->view->display('coding', ['articles' => $this->articles]);
+    $this->view->display('footer');
   }
 
   /**
@@ -38,11 +38,11 @@ class Coding_Controller extends Common_Controller {
   public function nanomvcfrm(): void {
     $this->_get_preparticle('NanoMVC — A Minimalist PHP MVC Framework for Fast, Clean Development');
 
-    // $this->dh::debug($this->ar_header, 'Categories');
+    // $this->dh->debug($this->ar_header, 'Categories');
 
-    $this->view->display('index_header', $this->ar_header);
-    $this->view->display('nanomvcfrm_view');
-    $this->view->display('index_footer');
+    $this->view->display('header', $this->ar_header);
+    $this->view->display('nanomvcfrm');
+    $this->view->display('footer');
   }
 
   /**
@@ -58,11 +58,11 @@ class Coding_Controller extends Common_Controller {
   public function git(): void {
     $this->_get_preparticle('Git Cheat Sheets — Essential Commands & Examples for Everyday Use');
 
-    // $this->dh::debug($this->ar_header, 'Categories');
+    // $this->dh->debug($this->ar_header, 'Categories');
 
-    $this->view->display('index_header', $this->ar_header);
-    $this->view->display('git_view');
-    $this->view->display('index_footer');
+    $this->view->display('header', $this->ar_header);
+    $this->view->display('git');
+    $this->view->display('footer');
   }
 
   /**
@@ -78,16 +78,16 @@ class Coding_Controller extends Common_Controller {
   public function tgwebauth(): void {
     $this->_get_preparticle('Unified Telegram Authorization for Login Widget and Mini Apps (PHP)');
 
-    // $this->dh::debug($this->ar_header, 'Categories');
+    // $this->dh->debug($this->ar_header, 'Categories');
 
-    $this->view->display('index_header', $this->ar_header);
-    $this->view->display('tgwebauth_view');
-    $this->view->display('index_footer');
+    $this->view->display('header', $this->ar_header);
+    $this->view->display('tgwebauth');
+    $this->view->display('footer');
   }
 
   /**
    * @blog {
-   *   "name": "Graphics Optimization for Web Games",
+   *   "name": "Graphics Optimization for Web",
    *   "description": "An in-depth practical guide to graphics optimization for web games and applications. Learn how to choose the right image formats, understand the difference between vector and raster graphics, reduce CPU, GPU, memory, and server load, minimize HTTP requests, optimize rendering performance, and build scalable frontend architecture for modern web projects.",
    *   "created": "2026-05-28 21:15",
    *   "is_project": false,
@@ -98,11 +98,11 @@ class Coding_Controller extends Common_Controller {
   public function webgraphics(): void {
     $this->_get_preparticle('How to Properly Prepare Graphics for Web Games and Applications');
 
-    // $this->dh::debug($this->ar_header, 'Categories');
+    // $this->dh->debug($this->ar_header, 'Categories');
 
-    $this->view->display('index_header', $this->ar_header);
-    $this->view->display('webgraphics_view');
-    $this->view->display('index_footer');
+    $this->view->display('header', $this->ar_header);
+    $this->view->display('webgraphics');
+    $this->view->display('footer');
   }
 
 }

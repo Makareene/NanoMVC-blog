@@ -12,7 +12,7 @@
 
 class Common_Controller extends NanoMVC_Controller {
   public NanoMVC_Library_URI $uri;
-  protected NanoMVC_Script_Helper $dh;
+  public NanoMVC_Library_Helper $dh;
   public NanoMVC_Library_BlogMenu $menu;
   protected array $ar_header;
   protected string $action;
@@ -33,12 +33,11 @@ class Common_Controller extends NanoMVC_Controller {
     $this->cntr_name = strtolower($this->_get_controller());
     $this->action = strtolower($this->_get_action());
     $this->load->library('BlogMenu', 'menu');
-    $this->load->script('helper');
-    $this->dh = new NanoMVC_Script_Helper();
+    $this->load->library('Helper', 'dh');
     $this->view->assign('dh', $this->dh);
 
     $this->ar_header['categories'] = $this->menu->get_categories(null, 'created asc');
-    // $this->dh::debug($this->ar_header['categories'], 'Categories');
+    // $this->dh->debug($this->ar_header['categories'], 'Categories');
     $this->ar_header['current_menu'] = ($this->action === 'index' ? $this->cntr_name : '');
 
   }
@@ -50,10 +49,10 @@ class Common_Controller extends NanoMVC_Controller {
 
   protected function _get_preparticle(string $title): void {
     $this->_get_articles();
-    $this->ar_header['title'] = $this->dh::esc_html($title);
+    $this->ar_header['title'] = $this->dh->esc_html($title);
 
     if (isset($this->articles[$this->action]['description']))
-      $this->ar_header['description'] = $this->dh::esc_html($this->articles[$this->action]['description']);
+      $this->ar_header['description'] = $this->dh->esc_html($this->articles[$this->action]['description']);
   }
 
   protected function _get_articles(): void {
@@ -71,7 +70,7 @@ class Common_Controller extends NanoMVC_Controller {
     if ($this->action === 'index') {
       $query_string = $this->uri->parse_query_string($_SERVER['QUERY_STRING'] ?? '');
 
-      // $this->dh::debug($query_string, 'QUERY_STRING');
+      // $this->dh->debug($query_string, 'QUERY_STRING');
 
       if (isset($query_string[0]) && $query_string[0]['key'] === 'page') {
         $this->current_page = $this->dh->is_int_like($query_string[0]['val']) ? ((int)$query_string[0]['val']) : 0;
@@ -88,20 +87,20 @@ class Common_Controller extends NanoMVC_Controller {
 
       $this->ar_header['has_img_height'] = $has_img_height;
 
-      $this->view->assign(['articles' => $this->articles,
-                           'max_page' => $this->max_page,
-                           'page_start' => $this->page_start,
-                           'page_end' => $this->page_end,
-                           'page_window' => $this->page_window,
-                           'link_menu' => '/' . ($this->cntr_name !== 'default' ? $this->cntr_name : '')
+      $this->view->assign([ 'articles'    => $this->articles
+                           ,'max_page'    => $this->max_page
+                           ,'page_start'  => $this->page_start
+                           ,'page_end'    => $this->page_end
+                           ,'page_window' => $this->page_window
+                           ,'link_menu'   => '/' . ($this->cntr_name !== 'default' ? $this->cntr_name : '')
                           ]);
     } else {
-      // $this->dh::debug($this->articles);die;
+      // $this->dh->debug($this->articles);die;
       if (isset($this->articles[$this->action]['_page']))
-        $this->current_page = $this->dh::esc_html($this->articles[$this->action]['_page']);
+        $this->current_page = $this->dh->esc_html($this->articles[$this->action]['_page']);
       $this->view->assign('back_link', '/' . $this->cntr_name . ($this->current_page > 1 ? ('?' . $this->page_key . '=' . $this->current_page): ''));
       $back_name = isset($this->ar_header['categories'][$this->cntr_name]['name']) ? $this->ar_header['categories'][$this->cntr_name]['name'] : 'Category';
-      $this->view->assign('back_name', $this->dh::esc_html($back_name));
+      $this->view->assign('back_name', $this->dh->esc_html($back_name));
     }
 
     $this->view->assign(['current_page' => $this->current_page, 'page_key' => $this->page_key]);

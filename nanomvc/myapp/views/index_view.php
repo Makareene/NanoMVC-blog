@@ -14,16 +14,16 @@
         </p>
       </section>
 
-      <?php $dh->view('article_list_view', ['article_name' => '🛠️ Projects',
-                                            'dh' => $dh,
-                                            'articles' => $articles,
-                                            'max_page' => $max_page,
-                                            'current_page' => $current_page,
-                                            'page_start' => $page_start,
-                                            'page_end' => $page_end,
-                                            'page_key' => $page_key,
-                                            'link_menu' => $link_menu
-                                           ])?>
+      <?php $dh->view('article_list', [ 'article_name' => '🛠️ Projects'
+                                       ,'dh'           => $dh
+                                       ,'articles'     => $articles
+                                       ,'max_page'     => $max_page
+                                       ,'current_page' => $current_page
+                                       ,'page_start'   => $page_start
+                                       ,'page_end'     => $page_end
+                                       ,'page_key'     => $page_key
+                                       ,'link_menu'    => $link_menu
+                                      ])?>
 
       <section class="section">
         <h2>👤 About me</h2>

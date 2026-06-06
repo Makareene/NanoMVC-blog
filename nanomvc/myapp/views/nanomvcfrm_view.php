@@ -1,139 +1,196 @@
-      <section class="article">
-        <article>
-          <h1>🐘 NanoMVC Framework</h1>
-          <p class="meta">A minimalist and lightweight PHP MVC framework inspired by TinyMVC — use it for small to medium projects with minimal configuration.</p>
+<section class="article">
+  <article>
 
-          <h2>Overview</h2>
+    <h1>🐘 NanoMVC Framework</h1>
 
-          <p>
-            <strong>NanoMVC</strong> is a cleaned-up, modernized fork of the original TinyMVC framework. It keeps the original simplicity and structure while updating internals for PHP 8.3+ and adding pragmatic enhancements. NanoMVC is intended for developers who prefer control, clarity, and a lightweight foundation rather than a large, opinionated stack.
-          </p>
+    <p class="meta">
+      A minimalist and lightweight PHP MVC framework inspired by TinyMVC — designed for developers who prefer simplicity, control, and extensibility over large and complex frameworks.
+    </p>
 
-          <h2>What NanoMVC Gives You</h2>
+    <h2>Overview</h2>
 
-          <ul>
-            <li>Clear MVC separation (Model — View — Controller)</li>
-            <li>PDO-based database layer (MySQL, PostgreSQL with port/schema support)</li>
-            <li>Simple plugin system for extensions and helpers</li>
-            <li>Safe customization points so you can extend core behavior without forking it permanently</li>
-          </ul>
+    <p>
+      <strong>NanoMVC</strong> is a modernized fork of the original TinyMVC framework.
+      It preserves the lightweight architecture and straightforward design that made TinyMVC attractive while introducing improvements for modern PHP development.
+    </p>
 
-          <h2>What NanoMVC Is Not</h2>
-          <p>
-          NanoMVC is <em>not</em> a full-stack framework like Laravel or Symfony. It intentionally avoids large built-in subsystems (ORMs, queues, heavy middleware). Instead it focuses on being predictable, small, and extensible.
-          </p>
+    <p>
+      NanoMVC focuses on providing a clean MVC foundation without forcing developers into a specific workflow.
+      It gives you the tools you need to build applications while staying out of your way.
+    </p>
 
-          <h2>Key Features</h2>
+    <h2>What NanoMVC Gives You</h2>
 
-          <ul>
-            <li>Minimalist — no unnecessary complexity or dependencies.</li>
-            <li>PHP 8.3+ ready — modern syntax and compatibility fixes.</li>
-            <li>Case-insensitive routing while preserving original URL casing for controller/action access.</li>
-            <li>Extensible plugin model — load helpers, libraries, and models via config or controller code.</li>
-            <li>Improved error handling with customizable view templates for HTTP status codes.</li>
-          </ul>
+    <ul>
+      <li>Clear MVC separation (Model — View — Controller)</li>
+      <li>PDO-based database layer with support for multiple database pools</li>
+      <li>Simple library system for reusable functionality</li>
+      <li>Automatic view discovery and flexible loading mechanisms</li>
+      <li>Safe customization points without modifying the core framework</li>
+      <li>Built-in utilities for routing, debugging, error handling, and HTML escaping</li>
+    </ul>
 
-          <h2>Recent Highlights</h2>
+    <h2>What NanoMVC Is Not</h2>
 
-          <p><strong>v1.0.3</strong> — Overhauled error handler, new URI and Script Helper plugins, BlogMenu plugin to create blogs without a database, and other refinements.</p>
+    <p>
+      NanoMVC is <em>not</em> a full-stack framework such as Laravel or Symfony.
+      It intentionally avoids large built-in subsystems such as ORMs, queues, dependency injection containers, and middleware pipelines.
+    </p>
 
-          <p><strong>v1.0.2</strong> — Core split into <code>NanoMVCCore.php</code> (base class), case-insensitive routing, autoload model improvements, PostgreSQL support, and a redesigned welcome view.</p>
+    <p>
+      Instead, NanoMVC provides a lightweight foundation that allows you to build applications exactly the way you want.
+    </p>
 
-          <h2>Project &amp; Documentation</h2>
-          <p>Repo: <a href="https://github.com/Makareene/NanoMVC" target="_blank" rel="noopener">https://github.com/&#8203;Makareene/NanoMVC</a></p>
-          <p>Documentation and guides are available at: <a href="https://nanomvc.nipaa.fyi" target="_blank" rel="noopener">https://nanomvc.nipaa.fyi</a></p>
+    <h2>Key Features</h2>
 
-          <h2>Project Structure (typical)</h2>
-          <pre><code>app/
+    <ul>
+      <li>Minimalistic architecture with very few dependencies.</li>
+      <li>Modern PHP support.</li>
+      <li>Simple controller-based routing.</li>
+      <li>Extensible library system.</li>
+      <li>Customizable error handling.</li>
+      <li>Multiple database connection pools.</li>
+      <li>Framework customization without modifying the core implementation.</li>
+    </ul>
+
+    <h2>Project &amp; Documentation</h2>
+
+    <p>
+      GitHub Repository:
+      <a href="https://github.com/Makareene/NanoMVC" target="_blank" rel="noopener">
+        https://github.com/&#8203;Makareene/&#8203;NanoMVC
+      </a>
+    </p>
+
+    <p>
+      Documentation:
+      <a href="https://nanomvc.nipaa.fyi" target="_blank" rel="noopener">
+        https://nanomvc.nipaa.fyi
+      </a>
+    </p>
+
+    <h2>Project Structure</h2>
+
+    <p>
+      A typical NanoMVC installation contains three main directories:
+    </p>
+
+<pre><code>htdocs/
+  index.php
+
+myapp/
   configs/
   controllers/
   models/
   views/
   plugins/
+
 myfiles/
   configs/
   controllers/
   models/
   views/
   plugins/
+
 sysfiles/
-  configs/
-  controllers/
-  models/
   views/
-  plugins/</code></pre>
+  plugins/
+  NanoMVC.php
+  NanoMVCCore.php</code></pre>
 
-          <h2>Installation (quick)</h2>
+    <p>
+      <strong>myapp</strong> contains your application code.
+      <strong>myfiles</strong> can be used for shared or customized components.
+      <strong>sysfiles</strong> contains the framework itself.
+    </p>
 
-          <ol>
-            <li>Download the repository from GitHub.</li>
-            <li>Place files in your project root.</li>
-            <li>Edit <code>/configs/&#8203;config_application.php</code> with base URL and settings.</li>
-            <li>Configure database in <code>/configs/config_database.php</code> if required.</li>
-            <li>Point your web server document root to the <code>/public</code> folder.</li>
-            <li>Change paths in your <code>index.php</code> file.</li>
-          </ol>
+    <h2>Core Concepts</h2>
 
-          <h2>Core Concepts</h2>
-          <p><strong>Controllers</strong> — map URLs to controller/method/params. Controller names are case-insensitive in routing; original casing is available via <code>$this->_get_controller()</code> and <code>$this->_get_action()</code>.</p>
+    <p>
+      <strong>Controllers</strong> handle requests and coordinate application logic.
+    </p>
 
-          <p><strong>Views</strong> — simple rendering layer. Use view helpers to assign variables and display templates.</p>
+    <p>
+      <strong>Views</strong> render output and presentation.
+    </p>
 
-          <p><strong>Models</strong> — PDO-backed data layer. Works with MySQL and PostgreSQL (includes port/schema options).</p>
+    <p>
+      <strong>Models</strong> encapsulate data access and database operations.
+    </p>
 
-          <p><strong>Plugins</strong> — small libraries you can load from config or controllers. Examples: URI helper, Script helper, BlogMenu.</p>
+    <p>
+      <strong>Libraries</strong> provide reusable functionality that can be loaded into controllers and models.
+    </p>
 
-          <h2>BlogMenu — blog without a DB or any storage system</h2>
+    <h2>BlogMenu — Content Without a Database</h2>
 
-          <p>
-          The <strong>BlogMenu</strong> plugin builds categories and articles straight from controller files and method PHPDoc metadata — no database required. Metadata format:
-          </p>
+    <p>
+      One of the more unusual NanoMVC libraries is <strong>BlogMenu</strong>.
+      It allows categories and articles to be generated directly from controller metadata and method PHPDoc comments.
+    </p>
 
-          <p>Controller category (first line example):</p>
-          <pre><code>&lt;?php // -&gt; as categorie: { "name": "Coding", "created": "2025-08-08 12:00", "symbol": "⚙️" } ?&gt;</code></pre>
+    <p>
+      This makes it possible to build documentation websites, developer blogs, and small content-driven projects without any database or external storage system.
+    </p>
 
-          <p>Method article metadata (PHPDoc example):</p>
-          <pre><code>/**
+    <p>
+      Example category metadata:
+    </p>
+
+<pre><code>&lt;?php // -&gt; as category: { "name": "Programming", "created": "2025-08-08 12:00" } ?&gt;</code></pre>
+
+    <p>
+      Example article metadata:
+    </p>
+
+<pre><code>/**
  * @blog {
  *   "name": "Installation",
- *   "description": "Learn how to install NanoMVC — from quick setup to shared installations. Follow clear steps for configuring your application and database.",
+ *   "description": "Getting started with NanoMVC",
  *   "created": "2025-07-15 09:00"
  * }
- */
-public function installation() { ... }</code></pre>
+ */</code></pre>
 
-          <p class="note">The plugin parses JSON-like metadata and exposes categories and articles through a simple API — great for documentation-style blogs or small sites that keep content with code.</p>
+    <p>
+      BlogMenu reads the metadata and automatically generates categories, article lists, navigation links, and pagination.
+    </p>
 
-          <h2>Core Example (simplified)</h2>
+    <h2>Framework Philosophy</h2>
 
-          <p>To understand runtime flow, here is a short, conceptual view of the core bootstrap (excerpt):</p>
+    <p>
+      NanoMVC follows a simple principle:
+    </p>
 
-          <pre><code>class nmvc_core {
-  public function main(): void {
-    $this->path_info = $_SERVER['PATH_INFO'] ?? '/';
-    include 'config_application.php';
-    $this->setupErrorHandling();
-    $this->setupRouting();
-    $this->setupSegments();
-    $this->setupController();
-    $this->setupAction();
-    $this->setupAutoloaders();
-    $this->controller->{$this->action}();
-  }
-}</code></pre>
+    <blockquote>
+      Provide a lightweight foundation and let developers decide how much structure they need.
+    </blockquote>
 
-          <h2>Requirements &amp; License</h2>
+    <p>
+      Instead of hiding application logic behind large abstractions, NanoMVC keeps most functionality visible and easy to understand.
+    </p>
 
-          <ul>
-            <li>PHP 8.3 or later</li>
-            <li>PDO extension enabled</li>
-            <li>License: LGPL v2.1 or later</li>
-          </ul>
+    <p>
+      This makes the framework especially suitable for small and medium-sized projects, internal tools, personal websites, documentation systems, and developers who prefer explicit code over framework magic.
+    </p>
 
-          <h2>Status</h2>
-          <p>NanoMVC is actively maintained as a minimalist, modern fork of TinyMVC — preserving the original goals of simplicity while adding safe, opt-in improvements.</p>
+    <h2>Requirements &amp; License</h2>
 
-          <p class="m1rem-top">Author: Nipaa (fork maintainer). Original TinyMVC by Monte Ohrt.</p>
+    <ul>
+      <li>PHP 8.3 or later</li>
+      <li>PDO extension enabled</li>
+      <li>LGPL v2.1 or later</li>
+    </ul>
 
-        </article>
-      </section>
+    <h2>Status</h2>
+
+    <p>
+      NanoMVC is actively maintained as a modern continuation of TinyMVC.
+      The goal is to preserve the original simplicity of the framework while improving compatibility, usability, and extensibility for modern PHP applications.
+    </p>
+
+    <p class="m1rem-top">
+      Author: Nipaa (fork maintainer). Original TinyMVC by Monte Ohrt.
+    </p>
+
+  </article>
+</section>

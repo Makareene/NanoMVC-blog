@@ -10,8 +10,8 @@
     <style>
       <?php foreach($categories as $cat):?>
       <?php if(isset($cat['symbol'])):?>
-      nav span.nav-cat-<?=$dh::esc_html(substr($cat['_link'], 1))?>::before {
-        content: '<?=$dh::esc_html($cat['symbol'])?>';
+      nav span.nav-cat-<?=$dh->esc_html(substr($cat['_link'], 1))?>::before {
+        content: '<?=$dh->esc_html($cat['symbol'])?>';
       }
 
       <?php endif?>
@@ -48,11 +48,11 @@
       <div class="nav-label"><button id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">⌘</button> Navigation</div>
       <div class="menu-items">
         <?php foreach($categories as $key => $cat):?>
-        <span class="nav-cat-<?=$dh::esc_html(substr($cat['_link'], 1))?><?=($current_menu === $key && $current_page == 1 ? ' active' : '')?>">
+        <span class="nav-cat-<?=$dh->esc_html(substr($cat['_link'], 1))?><?=($current_menu === $key && $current_page == 1 ? ' active' : '')?>">
           <?php if($current_menu === $key && $current_page == 1):?>
-          <b><?=$dh::esc_html($cat['name'])?></b>
+          <b><?=$dh->esc_html($cat['name'])?></b>
           <?php else:?>
-          <a href="<?=$dh::esc_html($cat['_link'])?>"><?=$dh::esc_html($cat['name'])?></a>
+          <a href="<?=$dh->esc_html($cat['_link'])?>"><?=$dh->esc_html($cat['name'])?></a>
           <?php endif?>
         </span>
         <?php endforeach?>

@@ -157,7 +157,7 @@ $data = $auth->get();</code></pre>
     Author: <strong>Nipaa</strong><br>
     GitHub:
     <a href="https://github.com/Makareene/Telegram-Unified-Auth" target="_blank" rel="noopener">
-      https://github.com/Makareene/Telegram-Unified-Auth
+      https://github.com/Makareene&#8203;/Telegram-Unified-Auth
     </a>
   </p>
 
